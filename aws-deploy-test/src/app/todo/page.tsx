@@ -116,7 +116,11 @@ const RowTodo = ({
   )
 }
 
-const InputArea = ({ addTodo }: { addTodo: (todo: string) => void }) => {
+type PropsInputArea = {
+  addTodo: (todo: string) => void
+}
+
+export const InputArea: React.FC<PropsInputArea> = ({ addTodo }) => {
   const [value, setValue] = useState('')
   const onSubmit = (e: MouseEvent) => {
     if (value === '') return
@@ -134,7 +138,12 @@ const InputArea = ({ addTodo }: { addTodo: (todo: string) => void }) => {
           label='todo'
           variant='outlined'
         />
-        <Button onClick={(e) => onSubmit(e)} color='primary' variant='contained' type='submit'>
+        <Button
+          disabled={value === ''}
+          onClick={(e) => onSubmit(e)}
+          color='primary'
+          variant='contained'
+          type='submit'>
           送信
         </Button>
       </Stack>
