@@ -1,0 +1,15 @@
+.wrapper {
+  background-color: #888;
+}
+
+.inner {
+  max-width: 400px;
+  margin-inline: auto;
+  ul {
+    display: grid;
+    gap: 8px;
+    li {
+      list-style: none;
+    }
+  }
+}
